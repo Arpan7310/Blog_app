@@ -124,7 +124,7 @@ export const deleteById =async (req,res,next) =>{
     try {
         blog=await Blog.findByIdAndRemove(id).populate('user');
         await blog.user.blogs.pull(blog); // remove blog from user as well
-        await blog.user.save(); //  populate save;
+        await blog.user.save(); //  populate  newly formed user object and save to database.
     }
 
     catch(err) {
