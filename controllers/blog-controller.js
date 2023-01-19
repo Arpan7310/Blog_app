@@ -145,7 +145,7 @@ export const getAllBlogsByUser = async (req,res,next) =>{
     let userBlogs ;
 
     try {
-      userBlogs=await User.findById(id).populate("blogs");
+      userBlogs=await User.findById(id).populate("blogs"); // fetch all the blogs related to the user
        }
     catch (err) {
       return  console.log(err)
